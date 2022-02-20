@@ -5,6 +5,7 @@ import ru.soular.taskmanager.models.Epic;
 import ru.soular.taskmanager.models.SubTask;
 import ru.soular.taskmanager.models.Task;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +29,18 @@ public class TaskManager implements Crudable {
     @Override
     public Task get(int taskID) {
         return tasks.get(taskID);
+    }
+
+    public <T extends Task> List<T> getTasksByType(Class<T> task) {
+        List<T> result = new ArrayList<T>();
+
+        for (Map.Entry<Integer, Task> entry : tasks.entrySet()) {
+            if (entry.getValue().getClass() == task) {
+                result.add(task.cast(entry.getValue()));
+            }
+        }
+
+        return result;
     }
 
     @Override
