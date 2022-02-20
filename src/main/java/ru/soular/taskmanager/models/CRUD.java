@@ -8,7 +8,7 @@ public interface CRUD {
 
     Map<Integer, Task> getAll();
 
-    void create(Task task);
+    Task create(Task task);
 
     void update(Task task, int taskID);
 
