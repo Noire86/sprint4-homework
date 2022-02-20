@@ -49,8 +49,9 @@ public class TaskManager implements CRUD {
     }
 
     @Override
-    public void create(Task task) {
+    public Task create(Task task) {
         tasks.put(task.getId(), task);
+        return task;
     }
 
     @Override
@@ -69,6 +70,13 @@ public class TaskManager implements CRUD {
     }
 
     public List<SubTask> getSubTasks(Epic epic) {
-        return epic.getSubTasks();
+        List<SubTask> result = new ArrayList<>();
+
+        tasks.forEach((key, value) -> {
+            if (value.getClass() == SubTask.class && ((SubTask) value).getParentEpic().equals(epic)) {
+                result.add((SubTask) value);
+            }
+        });
+        return result;
     }
 }

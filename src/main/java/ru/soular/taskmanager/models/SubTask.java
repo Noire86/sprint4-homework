@@ -7,7 +7,6 @@ public class SubTask extends Task {
     public SubTask(String name, String description, Epic parentEpic) {
         super(name, description);
         this.parentEpic = parentEpic;
-        parentEpic.addSubTask(this);
     }
 
     public Epic getParentEpic() {
@@ -18,12 +17,5 @@ public class SubTask extends Task {
     public void setStatus(TaskState status) {
         super.setStatus(status);
         parentEpic.setStatus(status);
-    }
-
-    @Override
-    public String toString() {
-        return "SubTask{" +
-                "parentEpic=" + parentEpic +
-                '}';
     }
 }

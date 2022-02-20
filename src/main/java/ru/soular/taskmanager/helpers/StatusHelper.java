@@ -1,24 +1,22 @@
 package ru.soular.taskmanager.helpers;
 
 
+import ru.soular.taskmanager.managers.TaskManager;
 import ru.soular.taskmanager.models.Epic;
-import ru.soular.taskmanager.models.SubTask;
 import ru.soular.taskmanager.models.Task.TaskState;
-
-import java.util.List;
 
 public class StatusHelper {
 
     private final Epic epic;
-    private final List<SubTask> subTasks;
+    private final TaskManager taskManager;
 
     public StatusHelper(Epic epic) {
         this.epic = epic;
-        this.subTasks = epic.getSubTasks();
+        this.taskManager = TaskManager.getInstance();
     }
 
     public TaskState updateEpicStatus() {
-        if ((epic.getSubTasks().size() == 0) || checkSameStatus(TaskState.NEW)) {
+        if ((taskManager.getSubTasks(epic).size() == 0) || checkSameStatus(TaskState.NEW)) {
             return TaskState.NEW;
 
         } else if (checkSameStatus(TaskState.DONE)) {
@@ -30,6 +28,6 @@ public class StatusHelper {
     }
 
     private boolean checkSameStatus(TaskState status) {
-        return subTasks.stream().allMatch(s -> s.getStatus().equals(status));
+        return taskManager.getSubTasks(epic).stream().allMatch(s -> s.getStatus().equals(status));
     }
 }
