@@ -19,4 +19,11 @@ public class SubTask extends Task {
         super.setStatus(status);
         parentEpic.setStatus(status);
     }
+
+    @Override
+    public String toString() {
+        return "SubTask{" +
+                "parentEpic=" + parentEpic +
+                '}';
+    }
 }

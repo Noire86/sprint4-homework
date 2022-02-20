@@ -54,6 +54,17 @@ public class Task {
         return id;
     }
 
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", displayName='" + displayName + '\'' +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                '}';
+    }
+
     public enum TaskState {
         NEW,
         IN_PROGRESS,
