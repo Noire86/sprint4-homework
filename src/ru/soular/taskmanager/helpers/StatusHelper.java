@@ -19,8 +19,10 @@ public class StatusHelper {
     public TaskState updateEpicStatus() {
         if ((epic.getSubTasks().size() == 0) || checkSameStatus(TaskState.NEW)) {
             return TaskState.NEW;
+
         } else if (checkSameStatus(TaskState.DONE)) {
             return TaskState.DONE;
+
         } else {
             return TaskState.IN_PROGRESS;
         }

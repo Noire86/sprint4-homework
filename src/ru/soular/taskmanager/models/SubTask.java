@@ -13,4 +13,10 @@ public class SubTask extends Task {
     public Epic getParentEpic() {
         return parentEpic;
     }
+
+    @Override
+    public void setStatus(TaskState status) {
+        super.setStatus(status);
+        parentEpic.setStatus(status);
+    }
 }
