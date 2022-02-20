@@ -1,4 +1,4 @@
-package ru.soular.taskmanager.util;
+package ru.soular.taskmanager.helpers;
 
 import ru.soular.taskmanager.models.Epic;
 import ru.soular.taskmanager.models.SubTask;

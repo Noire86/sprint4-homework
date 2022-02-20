@@ -1,6 +1,6 @@
 package ru.soular.taskmanager.managers;
 
-import ru.soular.taskmanager.models.Crudable;
+import ru.soular.taskmanager.models.CRUD;
 import ru.soular.taskmanager.models.Epic;
 import ru.soular.taskmanager.models.SubTask;
 import ru.soular.taskmanager.models.Task;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TaskManager implements Crudable {
+public class TaskManager implements CRUD {
 
     private final Map<Integer, Task> tasks;
 

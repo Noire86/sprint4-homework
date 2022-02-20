@@ -2,7 +2,7 @@ package ru.soular.taskmanager.models;
 
 import java.util.Map;
 
-public interface Crudable {
+public interface CRUD {
 
     Task get(int taskID);
 
