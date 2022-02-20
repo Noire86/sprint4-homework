@@ -8,6 +8,11 @@ import ru.soular.taskmanager.models.Epic;
 import ru.soular.taskmanager.models.SubTask;
 import ru.soular.taskmanager.models.Task;
 
+/**
+ * Базовый тест-родитель.
+ * Инициализирует новые сущности перед каждым тестом.
+ * Очищает их после завершения теста.
+ */
 public class BaseTest {
     protected TaskManager taskManager = TaskManager.getInstance();
     protected Faker faker = new Faker();

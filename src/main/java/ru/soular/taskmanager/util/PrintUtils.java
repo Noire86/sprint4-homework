@@ -8,10 +8,18 @@ import ru.soular.taskmanager.models.Task;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Утилитарный класс для текстового
+ * вывода данных о сущностях и задачах.
+ */
 public class PrintUtils {
 
     public static final String DELIMITER = "---------------------------";
 
+    /**
+     * Генерализованный метод 3 в 1:
+     * Печатает то, какой тип задачи вы ему дадите.
+     */
     public static <T extends Task> void printTasks(List<T> tasks) {
         tasks.forEach(t -> {
             if (t.getClass() == Task.class) {
@@ -31,6 +39,9 @@ public class PrintUtils {
         System.out.println(DELIMITER);
     }
 
+    /**
+     * Здесь просто печатаем все и сразу, что имеется в HashMap
+     */
     public static void printAllTasks(Map<Integer, Task> tasksMap) {
         tasksMap.forEach((key, value) ->
                 System.out.printf("ID Задачи: %d | Имя задачи: %s | Тип задачи: %s%n",

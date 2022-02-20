@@ -1,5 +1,11 @@
 package ru.soular.taskmanager.models;
 
+/**
+ * Дочерняя модель для субтасков.
+ * Примечательна тем что принудительно
+ * запускает процесс установки статуса эпика
+ * при изменении своего.
+ */
 public class SubTask extends Task {
 
     private final Epic parentEpic;

@@ -2,6 +2,12 @@ package ru.soular.taskmanager.models;
 
 import java.util.Random;
 
+/**
+ * Основной класс-модель задачки
+ * ID генерируем рандомно, а
+ * displayName для потомков,
+ * которые будут писать UI-фронт
+ */
 public class Task {
     private final int id;
     private String name;
@@ -55,6 +61,9 @@ public class Task {
     }
 
 
+    /**
+     * Удобный enum, как без него.
+     */
     public enum TaskState {
         NEW,
         IN_PROGRESS,

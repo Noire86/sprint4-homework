@@ -10,6 +10,10 @@ import ru.soular.taskmanager.models.SubTask;
 import ru.soular.taskmanager.models.Task;
 import ru.soular.taskmanager.util.PrintUtils;
 
+/**
+ * Основной тест для проверки функционала приложения
+ * Проверяем здесь все, что указано в ТЗ.
+ */
 public class MainTest extends BaseTest {
 
     @Test

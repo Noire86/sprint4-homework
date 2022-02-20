@@ -10,6 +10,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Главный класс - менеджер.
+ * Реализует интерфейс CRUD операций.
+ * Соответствует требованиям ТЗ спринта
+ */
 public class TaskManager implements CRUD {
 
     private final Map<Integer, Task> tasks;
@@ -18,6 +23,10 @@ public class TaskManager implements CRUD {
         tasks = new HashMap<>();
     }
 
+
+    /**
+     * А здесь - симпатичный синглтон (потокобезопасный)
+     */
     private static class Holder {
         public static final TaskManager INSTANCE = new TaskManager();
     }
@@ -31,8 +40,13 @@ public class TaskManager implements CRUD {
         return tasks.get(taskID);
     }
 
+
+    /**
+     * Генерализованный метод для удобного получения
+     * задач по типам из одной единой HashMap
+     */
     public <T extends Task> List<T> getTasksByType(Class<T> task) {
-        List<T> result = new ArrayList<T>();
+        List<T> result = new ArrayList<>();
 
         for (Map.Entry<Integer, Task> entry : tasks.entrySet()) {
             if (entry.getValue().getClass() == task) {
@@ -69,6 +83,10 @@ public class TaskManager implements CRUD {
         tasks.clear();
     }
 
+    /**
+     * Генерализованный метод получения субзадач из
+     * главной коллекции HashMap.
+     */
     public List<SubTask> getSubTasks(Epic epic) {
         List<SubTask> result = new ArrayList<>();
 

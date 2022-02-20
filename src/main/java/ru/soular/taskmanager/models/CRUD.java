@@ -2,6 +2,11 @@ package ru.soular.taskmanager.models;
 
 import java.util.Map;
 
+/**
+ * Полезный CRUD интерфейс для потомков
+ *
+ * Мы ведь серьезные бэкэндеры
+ */
 public interface CRUD {
 
     Task get(int taskID);
