@@ -75,4 +75,16 @@ public class MainTest extends BaseTest {
 
         Assertions.assertNotEquals(previousSize, taskManager.getAll().size());
     }
+
+    @Test
+    @DisplayName("Проверка удаления задач определенного типа")
+    public void deleteByTypeTest() {
+        int previousSize = taskManager.getAll().size();
+        PrintUtils.printTasks(taskManager.getTasksByType(SubTask.class));
+
+        taskManager.deleteTasksByType(SubTask.class);
+        PrintUtils.printTasks(taskManager.getTasksByType(SubTask.class));
+
+        Assertions.assertNotEquals(previousSize, taskManager.getAll().size());
+    }
 }
