@@ -57,15 +57,11 @@ public class TaskManager implements CRUD {
     }
 
     /**
-     * Генерализованный метод для удобного удаления
+     * Генерализованный метод для удобного удалени
      * задач по типам из одной единой Map<K, V>
      */
     public <T extends Task> void deleteTasksByType(Class<T> task) {
-        for (Map.Entry<Integer, Task> entry : tasks.entrySet()) {
-            if (entry.getValue().getClass() == task) {
-                tasks.remove(entry.getKey());
-            }
-        }
+        tasks.values().removeAll(getTasksByType(task));
     }
 
     @Override
