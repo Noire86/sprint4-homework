@@ -42,7 +42,7 @@ public class TaskManager implements CRUD {
 
     /**
      * Генерализованный метод для удобного получения
-     * задач по типам из одной единой HashMap
+     * задач по типам из одной единой Map<K, V>
      */
     public <T extends Task> List<T> getTasksByType(Class<T> task) {
         List<T> result = new ArrayList<>();
@@ -54,6 +54,18 @@ public class TaskManager implements CRUD {
         }
 
         return result;
+    }
+
+    /**
+     * Генерализованный метод для удобного удаления
+     * задач по типам из одной единой Map<K, V>
+     */
+    public <T extends Task> void deleteTasksByType(Class<T> task) {
+        for (Map.Entry<Integer, Task> entry : tasks.entrySet()) {
+            if (entry.getValue().getClass() == task) {
+                tasks.remove(entry.getKey());
+            }
+        }
     }
 
     @Override
