@@ -1,5 +1,6 @@
 package ru.soular.taskmanager.models;
 
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -60,6 +61,18 @@ public class Task {
         return id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Task)) return false;
+        Task task = (Task) o;
+        return id == task.id && Objects.equals(name, task.name) && Objects.equals(displayName, task.displayName) && Objects.equals(description, task.description) && status == task.status;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, displayName, description, status);
+    }
 
     /**
      * Удобный enum, как без него.
