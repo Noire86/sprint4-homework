@@ -1,4 +1,6 @@
-package ru.soular.taskmanager.models;
+package ru.soular.taskmanager.managers;
+
+import ru.soular.taskmanager.models.Task;
 
 import java.util.Map;
 

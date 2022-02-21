@@ -40,9 +40,6 @@ public class MainTest extends BaseTest {
 
         Assertions.assertEquals(value, task1.getStatus());
         Assertions.assertEquals(value, task2.getStatus());
-
-
-
     }
 
     @ParameterizedTest
