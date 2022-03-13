@@ -33,4 +33,6 @@ public interface ITaskManager {
     void deleteAll();
 
     List<SubTask> getSubTasks(Epic epic);
+
+    List<Task> history();
 }
