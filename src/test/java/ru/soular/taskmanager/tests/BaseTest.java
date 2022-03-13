@@ -42,6 +42,6 @@ public class BaseTest {
     @AfterEach
     public void clean() {
         taskManager.deleteAll();
-        taskManager.clearHistory();
+        taskManager.history().clear();
     }
 }
