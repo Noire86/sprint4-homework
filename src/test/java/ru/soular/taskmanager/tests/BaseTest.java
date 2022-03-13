@@ -3,7 +3,7 @@ package ru.soular.taskmanager.tests;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import ru.soular.taskmanager.managers.TaskManager;
+import ru.soular.taskmanager.managers.InMemoryTaskManager;
 import ru.soular.taskmanager.models.Epic;
 import ru.soular.taskmanager.models.SubTask;
 import ru.soular.taskmanager.models.Task;
@@ -14,7 +14,7 @@ import ru.soular.taskmanager.models.Task;
  * Очищает их после завершения теста.
  */
 public class BaseTest {
-    protected TaskManager taskManager = TaskManager.getInstance();
+    protected InMemoryTaskManager taskManager = InMemoryTaskManager.getInstance();
     protected Faker faker = new Faker();
 
     protected Task task1;

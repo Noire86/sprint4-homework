@@ -11,14 +11,14 @@ import java.util.Map;
 
 /**
  * Главный класс - менеджер.
- * Реализует интерфейс CRUD операций.
+ * Реализует интерфейс ITaskManager операций.
  * Соответствует требованиям ТЗ спринта
  */
-public class TaskManager implements CRUD {
+public class InMemoryTaskManager implements ITaskManager {
 
     private final Map<Integer, Task> tasks;
 
-    private TaskManager() {
+    private InMemoryTaskManager() {
         tasks = new HashMap<>();
     }
 
@@ -27,10 +27,10 @@ public class TaskManager implements CRUD {
      * А здесь - симпатичный синглтон (потокобезопасный)
      */
     private static class Holder {
-        public static final TaskManager INSTANCE = new TaskManager();
+        public static final InMemoryTaskManager INSTANCE = new InMemoryTaskManager();
     }
 
-    public static TaskManager getInstance() {
+    public static InMemoryTaskManager getInstance() {
         return Holder.INSTANCE;
     }
 
@@ -44,9 +44,10 @@ public class TaskManager implements CRUD {
      * Генерализованный метод для удобного получения
      * задач по типам из одной единой Map<K, V>
      */
+    @Override
     public <T extends Task> List<T> getTasksByType(Class<T> task) {
         List<T> result = new ArrayList<>();
-
+    
         for (Map.Entry<Integer, Task> entry : tasks.entrySet()) {
             if (entry.getValue().getClass() == task) {
                 result.add(task.cast(entry.getValue()));
@@ -60,6 +61,8 @@ public class TaskManager implements CRUD {
      * Генерализованный метод для удобного удалени
      * задач по типам из одной единой Map<K, V>
      */
+
+    @Override
     public <T extends Task> void deleteTasksByType(Class<T> task) {
         tasks.values().removeAll(getTasksByType(task));
     }
@@ -94,6 +97,8 @@ public class TaskManager implements CRUD {
      * Генерализованный метод получения субзадач из
      * главной коллекции HashMap.
      */
+
+    @Override
     public List<SubTask> getSubTasks(Epic epic) {
         List<SubTask> result = new ArrayList<>();
 

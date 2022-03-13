@@ -1,6 +1,6 @@
 package ru.soular.taskmanager.util;
 
-import ru.soular.taskmanager.managers.TaskManager;
+import ru.soular.taskmanager.managers.InMemoryTaskManager;
 import ru.soular.taskmanager.models.Epic;
 import ru.soular.taskmanager.models.SubTask;
 import ru.soular.taskmanager.models.Task;
@@ -28,7 +28,7 @@ public class PrintUtils {
 
             } else if (t.getClass() == Epic.class) {
                 System.out.printf("Epic задача - %s  | ID: %d | Статус: %s | Описание: %s | Кол-во субзадач: %d%n",
-                        t.getName(), t.getId(), t.getStatus(), t.getDescription(), TaskManager.getInstance().getSubTasks((Epic) t).size());
+                        t.getName(), t.getId(), t.getStatus(), t.getDescription(), InMemoryTaskManager.getInstance().getSubTasks((Epic) t).size());
 
             } else if (t.getClass() == SubTask.class) {
                 System.out.printf("Cубзадача - %s  | ID: %d | Статус: %s | Описание: %s | Имя и ID эпика: %s:%d%n",
