@@ -13,6 +13,8 @@ import java.util.Map;
  * Главный класс - менеджер.
  * Реализует интерфейс ITaskManager операций.
  * Соответствует требованиям ТЗ спринта
+ *
+ * UPD: Превращен в InMemoryTaskManager
  */
 public class InMemoryTaskManager implements ITaskManager {
 
@@ -35,6 +37,9 @@ public class InMemoryTaskManager implements ITaskManager {
         return Holder.INSTANCE;
     }
 
+    /**
+     * Добавлена работа с history
+     */
     @Override
     public Task get(int taskID) {
         Task result = tasks.get(taskID);

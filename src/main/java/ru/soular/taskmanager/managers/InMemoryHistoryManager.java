@@ -5,6 +5,9 @@ import ru.soular.taskmanager.models.Task;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Менеджер истории тасков в памяти
+ */
 public class InMemoryHistoryManager implements IHistoryManager {
 
     private final List<Task> history;
