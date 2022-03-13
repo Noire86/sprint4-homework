@@ -35,4 +35,6 @@ public interface ITaskManager {
     List<SubTask> getSubTasks(Epic epic);
 
     List<Task> history();
+
+    void clearHistory();
 }

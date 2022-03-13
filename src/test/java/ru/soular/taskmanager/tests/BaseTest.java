@@ -4,7 +4,6 @@ import com.github.javafaker.Faker;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import ru.soular.taskmanager.managers.ITaskManager;
-import ru.soular.taskmanager.managers.InMemoryTaskManager;
 import ru.soular.taskmanager.managers.Managers;
 import ru.soular.taskmanager.models.Epic;
 import ru.soular.taskmanager.models.SubTask;
@@ -43,5 +42,6 @@ public class BaseTest {
     @AfterEach
     public void clean() {
         taskManager.deleteAll();
+        taskManager.clearHistory();
     }
 }

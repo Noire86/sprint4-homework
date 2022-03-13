@@ -123,4 +123,9 @@ public class InMemoryTaskManager implements ITaskManager {
     public List<Task> history() {
         return historyManager.getHistory();
     }
+
+    @Override
+    public void clearHistory() {
+        historyManager.getHistory().clear();
+    }
 }
