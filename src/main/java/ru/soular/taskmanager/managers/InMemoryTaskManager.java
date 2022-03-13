@@ -59,6 +59,7 @@ public class InMemoryTaskManager implements ITaskManager {
         for (Map.Entry<Integer, Task> entry : tasks.entrySet()) {
             if (entry.getValue().getClass() == task) {
                 result.add(task.cast(entry.getValue()));
+                historyManager.add(task.cast(entry.getValue()));
             }
         }
 
@@ -116,5 +117,9 @@ public class InMemoryTaskManager implements ITaskManager {
             }
         });
         return result;
+    }
+
+    public List<Task> history() {
+        return historyManager.getHistory();
     }
 }

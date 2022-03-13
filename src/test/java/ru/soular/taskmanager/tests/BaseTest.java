@@ -24,6 +24,7 @@ public class BaseTest {
     protected SubTask subTask2;
     protected Epic epic2;
     protected SubTask subTask3;
+    protected int task1ID;
 
     @BeforeEach
     public void init() {
@@ -34,6 +35,7 @@ public class BaseTest {
         subTask2 = (SubTask) taskManager.create(new SubTask(faker.book().title(), faker.book().author(), epic1));
         epic2 = (Epic) taskManager.create(new Epic(faker.funnyName().name(), faker.funnyName().name()));
         subTask3 = (SubTask) taskManager.create(new SubTask(faker.currency().name(), faker.currency().code(), epic2));
+        task1ID = task1.getId();
     }
 
     @AfterEach
