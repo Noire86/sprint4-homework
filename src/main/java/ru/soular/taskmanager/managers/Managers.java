@@ -9,5 +9,4 @@ public class Managers {
     public static IHistoryManager getDefaultHistory() {
         return InMemoryHistoryManager.getInstance();
     }
-    //TODO Сделай синглтон и два дженерика для истории и таскманагеров
 }

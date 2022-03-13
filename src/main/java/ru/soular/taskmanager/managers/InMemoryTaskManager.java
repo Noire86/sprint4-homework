@@ -17,6 +17,7 @@ import java.util.Map;
 public class InMemoryTaskManager implements ITaskManager {
 
     private final Map<Integer, Task> tasks;
+    private final IHistoryManager historyManager = Managers.getDefaultHistory();
 
     private InMemoryTaskManager() {
         tasks = new HashMap<>();
@@ -36,7 +37,9 @@ public class InMemoryTaskManager implements ITaskManager {
 
     @Override
     public Task get(int taskID) {
-        return tasks.get(taskID);
+        Task result = tasks.get(taskID);
+        historyManager.add(result);
+        return result;
     }
 
 
