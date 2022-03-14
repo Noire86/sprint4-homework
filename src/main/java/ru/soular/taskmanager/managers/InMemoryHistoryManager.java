@@ -30,7 +30,7 @@ public class InMemoryHistoryManager implements IHistoryManager {
     @Override
     public void add(Task task) {
         if (history.size() > 10) {
-            history.remove(1);
+            history.remove(0);
         }
         history.add(task);
     }

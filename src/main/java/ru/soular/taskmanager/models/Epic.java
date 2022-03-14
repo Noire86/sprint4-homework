@@ -1,5 +1,6 @@
 package ru.soular.taskmanager.models;
 
+import ru.soular.taskmanager.managers.ITaskManager;
 import ru.soular.taskmanager.managers.InMemoryTaskManager;
 
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
  * желающих установить свой статус для эпика
  */
 public class Epic extends Task {
-    private final InMemoryTaskManager taskManager;
+    private final ITaskManager taskManager;
 
     public Epic(String name, String description) {
         super(name, description);
