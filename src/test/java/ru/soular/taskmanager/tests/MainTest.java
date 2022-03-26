@@ -38,6 +38,8 @@ public class MainTest extends BaseTest {
         task1.setStatus(value);
         task2.setStatus(value);
 
+        PrintUtils.printTasks(taskManager.getTasksByType(Task.class));
+
         Assertions.assertEquals(value, task1.getStatus());
         Assertions.assertEquals(value, task2.getStatus());
     }
@@ -53,13 +55,14 @@ public class MainTest extends BaseTest {
         subTask1.setStatus(value);
         subTask2.setStatus(value);
         subTask3.setStatus(value);
+        subTask4.setStatus(value);
 
         PrintUtils.printTasks(taskManager.getTasksByType(Epic.class));
         PrintUtils.printTasks(taskManager.getTasksByType(SubTask.class));
 
         Assertions.assertEquals(value, subTask1.getStatus());
         Assertions.assertEquals(value, subTask2.getStatus());
-        Assertions.assertEquals(value, subTask3.getStatus());
+        Assertions.assertEquals(value, subTask4.getStatus());
 
         Assertions.assertEquals(value, epic1.getStatus());
         Assertions.assertEquals(value, epic2.getStatus());

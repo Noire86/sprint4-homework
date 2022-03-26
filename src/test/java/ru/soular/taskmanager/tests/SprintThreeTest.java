@@ -1,6 +1,7 @@
 package ru.soular.taskmanager.tests;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.soular.taskmanager.models.Epic;
@@ -13,6 +14,7 @@ public class SprintThreeTest extends BaseTest {
      * Тест для проверки пополнения списка истории
      */
     @Test
+    @Disabled
     @DisplayName("Проверка списка истории запросов")
     public void historyTest() {
         int size = taskManager.history().size();
@@ -32,6 +34,7 @@ public class SprintThreeTest extends BaseTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("Проверка ограничения истории 10 элементами")
     public void historyCapTest() {
 
