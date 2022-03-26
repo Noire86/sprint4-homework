@@ -11,5 +11,9 @@ public interface IHistoryManager {
 
     void add(Task task);
 
+    void remove(int taskID);
+
     List<Task> getHistory();
+
+    void clear();
 }
