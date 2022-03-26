@@ -37,7 +37,6 @@ public class SprintThreeTest extends BaseTest {
     @Disabled
     @DisplayName("Проверка ограничения истории 10 элементами")
     public void historyCapTest() {
-
         int size1 = taskManager.history().size();
         System.out.println("Начальный размер списка истории: " + size1);
         Assertions.assertEquals(0, size1);
@@ -50,6 +49,5 @@ public class SprintThreeTest extends BaseTest {
         int size2 = taskManager.history().size();
         System.out.println("Итоговый размер списка истории: " + size2);
         Assertions.assertEquals(10, size2);
-
     }
 }

@@ -92,6 +92,13 @@ public class InMemoryTaskManager implements ITaskManager {
         tasks.put(taskID, task);
     }
 
+    /**
+     * Добавлен функционал удаления Эпика
+     * с дочерними задачами.
+     *
+     * Реализовано здесь потому, что в ТЗ-2
+     * getSubTasks должен находиться здесь.
+     */
     @Override
     public void delete(int taskID) {
 

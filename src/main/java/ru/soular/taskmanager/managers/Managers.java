@@ -10,6 +10,7 @@ package ru.soular.taskmanager.managers;
  * интерфейса ITaskManager, поэтому
  * была сделана простая заглушка.
  */
+
 public class Managers {
 
     public static ITaskManager getDefault() {

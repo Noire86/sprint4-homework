@@ -41,6 +41,9 @@ public class InMemoryHistoryManager implements IHistoryManager {
         history.put(task.getId(), historyLinked.linkLast(task)); //Кладем новую ноду в HashMap по тому же ID задачи
     }
 
+    /**
+     * Метод для удаления записи истории
+     */
     @Override
     public void remove(int taskID) {
         Node<Task> node = history.get(taskID);
@@ -51,11 +54,22 @@ public class InMemoryHistoryManager implements IHistoryManager {
         history.remove(taskID);
     }
 
+    /**
+     * Получение списка истории теперь
+     * запрашивается из кастомного
+     * связанного списка
+     */
     @Override
     public List<Task> getHistory() {
         return historyLinked.getTasks();
     }
 
+    /**
+     * Метод очистки кастомной коллекции.
+     * Не требуется непосредственно в ТЗ,
+     * но жизненно необходим в тестировании
+     * функционала
+     */
     @Override
     public void clear() {
         historyLinked.clear();

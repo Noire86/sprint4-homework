@@ -3,12 +3,19 @@ package ru.soular.taskmanager.util;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *  Кастомная версия LinkedList
+ */
 public class CustomLinkedList<T> {
 
     Node<T> first;
     Node<T> last;
     int size = 0;
 
+    /**
+     * Метод для добавления ноды в
+     * хвост списка
+     */
     public Node<T> linkLast(T value) {
         Node<T> l = last;
         Node<T> newNode = new Node<>(null, l, value);
@@ -23,6 +30,10 @@ public class CustomLinkedList<T> {
         return newNode;
     }
 
+    /**
+     * Формируем лист с историей
+     * путем перебора с указателем
+     */
     public List<T> getTasks() {
         List<T> result = new ArrayList<>();
         Node<T> pointer = first;
@@ -35,6 +46,10 @@ public class CustomLinkedList<T> {
         return result;
     }
 
+    /**
+     * Удаляем ноду, предусматриваем
+     * NullPointerException
+     */
     public void removeNode(Node<T> node) {
         Node<T> next = node.nextNode;
         Node<T> prev = node.prevNode;
@@ -57,6 +72,11 @@ public class CustomLinkedList<T> {
         size--;
     }
 
+    /**
+     * Очищаем коллекцию, пробегаемся
+     * с помощью указателя по связанным нодам,
+     * затираем ссылки и содержимое
+     */
     public void clear() {
         Node<T> pointer = first;
 
@@ -73,6 +93,9 @@ public class CustomLinkedList<T> {
         size = 0;
     }
 
+    /**
+     * Класс для ноды с полями
+     */
     public static class Node<T> {
         Node<T> nextNode;
         Node<T> prevNode;

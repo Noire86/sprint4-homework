@@ -5,8 +5,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.soular.taskmanager.models.Task;
 
-import java.util.ArrayList;
-
 public class SprintFourTest extends BaseTest {
 
     @Test
@@ -26,7 +24,6 @@ public class SprintFourTest extends BaseTest {
         taskManager.history().forEach(System.out::println);
 
         Assertions.assertNotEquals(8, taskManager.history().size(), "В истории присутствуют повторы!");
-
     }
 
     @Test
@@ -44,7 +41,6 @@ public class SprintFourTest extends BaseTest {
 
         Assertions.assertNotEquals(size1, size2, "Удаление из истории прошло неудачно!");
     }
-
 
     @Test
     @DisplayName("Проверка удаления одной ноды в начале")
@@ -114,7 +110,6 @@ public class SprintFourTest extends BaseTest {
 
         Assertions.assertEquals(0, size2, "Удаление из истории прошло неудачно!");
     }
-
 
     @Test
     @DisplayName("Проверка очистки CustomLinkedList")
