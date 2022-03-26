@@ -2,21 +2,27 @@ package ru.soular.taskmanager.managers;
 
 import ru.soular.taskmanager.models.Task;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import ru.soular.taskmanager.util.CustomLinkedList;
+import ru.soular.taskmanager.util.CustomLinkedList.*;
 
 /**
  * Менеджер истории тасков в памяти
  */
 public class InMemoryHistoryManager implements IHistoryManager {
 
-    private final List<Task> history;
+    Map<Integer, Node<Task>> history;
+    CustomLinkedList<Task> historyLinked;
 
     /**
      * А здесь - симпатичный синглтон (потокобезопасный)
      */
     private InMemoryHistoryManager() {
-        this.history = new ArrayList<>();
+        this.history = new HashMap<>();
+        this.historyLinked = new CustomLinkedList<>();
     }
 
     private static class Holder {
@@ -29,14 +35,29 @@ public class InMemoryHistoryManager implements IHistoryManager {
 
     @Override
     public void add(Task task) {
-        if (history.size() > 10) {
-            history.remove(0);
+        if (history.containsKey(task.getId())) { //Проверяем что в хешмапе есть уже такая задача
+            remove(task.getId()); //удаляем ноду из двусвязного списка
         }
-        history.add(task);
+        history.put(task.getId(), historyLinked.linkLast(task)); //Кладем новую ноду в HashMap по тому же ID задачи
+    }
+
+    @Override
+    public void remove(int taskID) {
+        Node<Task> node = history.get(taskID);
+
+        if (node != null) {
+            historyLinked.removeNode(node);
+        }
+        history.remove(taskID);
     }
 
     @Override
     public List<Task> getHistory() {
-        return history;
+        return historyLinked.getTasks();
+    }
+
+    @Override
+    public void clear() {
+        historyLinked.clear();
     }
 }
