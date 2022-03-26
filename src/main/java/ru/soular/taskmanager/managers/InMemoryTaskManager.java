@@ -94,12 +94,19 @@ public class InMemoryTaskManager implements ITaskManager {
 
     @Override
     public void delete(int taskID) {
+
+        if (tasks.get(taskID) instanceof Epic) {
+            deleteSubtasksByEpic((Epic) tasks.get(taskID));
+        }
+
         tasks.remove(taskID);
+        historyManager.remove(taskID);
     }
 
     @Override
     public void deleteAll() {
         tasks.clear();
+        historyManager.clear();
     }
 
     /**
@@ -117,6 +124,16 @@ public class InMemoryTaskManager implements ITaskManager {
             }
         });
         return result;
+    }
+
+    /**
+     * Генерализованный метод удаления субзадач эпика из
+     * главной коллекции HashMap.
+     */
+
+    @Override
+    public void deleteSubtasksByEpic(Epic epic) {
+        epic.getChildSubtasks().forEach(subTask -> delete(subTask.getId()));
     }
 
     @Override
