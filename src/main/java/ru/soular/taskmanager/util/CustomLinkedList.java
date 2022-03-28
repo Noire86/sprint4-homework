@@ -8,9 +8,9 @@ import java.util.List;
  */
 public class CustomLinkedList<T> {
 
-    Node<T> first;
-    Node<T> last;
-    int size = 0;
+    private Node<T> first;
+    private Node<T> last;
+    private int size = 0;
 
     /**
      * Метод для добавления ноды в
